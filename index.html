@@ -8,25 +8,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-        <form id='ciudad'action="">
-        <input type="text">
-        <button id="botonSubmit" type="submit">Agregar ciudad</button>
-        </form>
-<div class="container">
-
-    <div id="caja1">
-        <h1 id="temperaturaValor"></h1>
-        <h1 id="temperaturaDescripcion"></h1>
-    </div>
-    <div id="caja2">
-        <h2 id="ubicacion"></h2>
-        <img id="iconoAnimado" src="" alt="" height="128" width="128">
-   </div>
-   <div id="caja3">
-    <h3>Veloc. del Viento</h3>
-    <h1 id="vientoVelocidad"></h1>
-   </div>
-</div>
+    <form id="enviarCiudad">
+        <div class="mb-3 row">
+            <label class="form-label">Ingresa el nombre de una ciudad para ver su información climática:</label>
+            <div class="col-9">
+                <input class="form-control" id="recibirCiudad">
+            </div>
+            <div class="col-3">
+                <button class="mb-3 btn btn-secondary" type="submit">Agregar</button>
+            </div>
+        </div>
+      </form>
+      <div id="imprimirCiudad">
+        
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="app.js"></script>
 
 </body>
