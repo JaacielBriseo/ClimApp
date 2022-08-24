@@ -5,14 +5,15 @@
     box-sizing: border-box;
 }
 body {
+    width: 100%;
     height: 90vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     background: #c31432;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
@@ -28,8 +29,8 @@ background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, F
     text-align: center;
     vertical-align: middle;
     padding-top: 20%;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
 }
 
 #caja1{
@@ -43,4 +44,30 @@ background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, F
 #caja3{
     background-color: darkolivegreen;
     color: azure;
+}
+#enviarCiudad {
+    display: inline-block;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+}
+@media screen and (max-width:480px){
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    #caja1,#caja2,#caja3 {
+        width: 100%;
+        height: auto;
+    }
+    #enviarCiudad {
+        margin: auto;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+    #btnAgregar {
+        margin: auto;
+    }
+
 }

@@ -5,6 +5,7 @@ let temperatura = document.getElementById("temperatura");
 let humedad = document.getElementById("humedad");
 let viento = document.getElementById("viento");
 let ciudades = [];
+let contadorIteraciones = 0
 
 //Logica del formulario
 enviarCiudad.addEventListener("submit", function (event) {
@@ -13,7 +14,6 @@ enviarCiudad.addEventListener("submit", function (event) {
     mostrarCiudad();
     peticion();
 });
-
 
 //Funcion para guardar varias ciudades
 function guardarCiudad (ciudad) {
@@ -25,28 +25,27 @@ function guardarCiudad (ciudad) {
 
 //Funcion para mostrar ciudad
 function mostrarCiudad () {
-    imprimirCiudad.innerHTML = ""
-    ciudades.forEach(function (objeto) {
-    imprimirCiudad.innerHTML += `
-    <div class="container">
-
-    <div id="caja1">
-        <h1 id="temperaturaValor"></h1>
-        <h1 id="temperaturaDescripcion"></h1>
-    </div>
-    <div id="caja2">
-        <h2 id="ubicacion"></h2>
-        <img id="iconoAnimado" src="" alt="" height="128" width="128">
-   </div>
-   <div id="caja3">
-    <h3>Veloc. del Viento</h3>
-    <h1 id="vientoVelocidad"></h1>
-   </div>
+  
+  ciudades.forEach(function (objeto) {
+  imprimirCiudad.innerHTML = ""  
+  imprimirCiudad.innerHTML += `
+  <div class="container">
+  <div id="caja1">
+      <h1 id="temperaturaValor"></h1>
+      <h1 id="temperaturaDescripcion"></h1>
+  </div>
+  <div id="caja2">
+      <h2 id="ubicacion">${objeto.ciudad}</h2>
+      <img id="iconoAnimado" src="" alt="" height="128" width="128">
+ </div>
+ <div id="caja3">
+  <h3>Veloc. del Viento</h3>
+  <h1 id="vientoVelocidad"></h1>
+ </div>
 </div>
-    `
-    })
+  `
+  })
 }
-
 //Peticion para buscar coordenadas de ciudad
 const peticion = async () => {
     const respuesta = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${recibirCiudad.value}&lang=es&units=metric&appid=ee322eedc415019029f1daab175edc7e`)
@@ -57,7 +56,7 @@ const peticion = async () => {
     let desc = respuesta.data.weather[0].description
     temperaturaDescripcion.textContent = desc.toUpperCase()
 
-    ubicacion.textContent = respuesta.data.name
+    
 
     vientoVelocidad.textContent = `${respuesta.data.wind.speed} m/s`
 
